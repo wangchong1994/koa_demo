@@ -8,6 +8,29 @@ const logger = require('koa-logger')
 const cors = require('koa2-cors')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const mongo = require('./routes/mongo')
+// const mongoose = require('mongoose')
+// const router = require('koa-router')()
+
+
+/*const db = mongoose.connect("mongodb://localhost/testDB") //加入mongodb链接
+
+// 账户的数据库模型
+var UserSchema = new mongoose.Schema({
+    username:String,
+    password:String,
+    email:String
+});
+var User = mongoose.model('User',UserSchema);
+// 新增数据
+var user = {
+  username: 'wc',
+  password: '123123',
+  email: ''
+}
+var newUser = new User(user);
+newUser.save();*/
+
 
 // error handler
 onerror(app)
@@ -48,7 +71,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
-
+app.use(mongo.routes(), users.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
