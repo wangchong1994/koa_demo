@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "watch": "nodemon app.js",
+    "websocket": "nodemon websocket.js",
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
@@ -25,7 +26,8 @@
     "mongoose": "^5.4.13",
     "nodemon": "^1.18.10",
     "sails-mongo": "^1.0.1",
-    "waterline": "^0.13.6"
+    "waterline": "^0.13.6",
+    "ws": "^6.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"

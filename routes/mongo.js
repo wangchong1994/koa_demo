@@ -1,22 +1,9 @@
 const router = require('koa-router')()
 const mongoose = require('mongoose')
-const db = mongoose.connect("mongodb://localhost/testDB") //加入mongodb链接
+const db = mongoose.connect("mongodb://localhost/testDB", {useNewUrlParser:true}) //加入mongodb链接
 
-// 账户的数据库模型
-/*var UserSchema = new mongoose.Schema({
-    username:String,
-    password:String,
-    email:String
-});
-var User = mongoose.model('User',UserSchema);
-// 新增数据
-var user = {
-  username: 'ydj',
-  password: '123123',
-  email: ''
-}
-var newUser = new User(user);
-newUser.save();*/
+
+// 加上{useNewUrlParser:true}的原因是重启的时候连接mongodb报错
 
 var UserSchema = new mongoose.Schema({
     username:String,
